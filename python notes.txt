@@ -1,0 +1,174 @@
+                                                                         ---------------
+                                                                         Har Har MahaDev
+                                                                         ---------------
+
+
+- exponentiation = 4 ** 4   # 256        (Give power)
+- floor_division = 16 // 5  # 3          (Gives the value before the decimal point after devision)
+- modulo = 7 % 3  # 1                    (Gives the reminder)
+
+
+# Assignment operator
+
+  sub = 10
+  sub -= 5   # 5
+
+  mult = 10
+  mult *= 5    # 50
+
+
+
+
+# round function
+
+ex_var = 1.23 + 2.80
+print(round(ex_var, 2))
+
+
+# Strings can be inside "" or '' . Prefer ""
+
+
+07-07-2023
+----------
+
+
+# To import Library use     import
+  ex. import os
+      import shutil
+
+# To check disk usage of entire system using python use cmd             ex. print(shutil.disk_usage("/"))
+
+# In F String use {}                 ex. print(f"Total disk space is: {total // (2**30)} GB")
+
+
+10-08-2023
+----------
+
+# Python uses dynamic typing, meaning you can reassign variables to different data types. This makes Python very flexible in assigning data types; it differs from other languages that are statically typed.
+
+
+# To make new line in python use \n      ex. Print ("hello \n world")   
+                                                     hello
+                                                      world
+
+# To get 4 space in btw words use \t     ex. Print ("hello \tworld")   
+                                                     hello    world
+ 
+
+# -1 is the last letter of string, 0 is first
+
+# : is the last character in slice.           ex. my_string = "abcde"
+                                                  my_string[2:] it will give "cde"
+  & vice versa if want it from beginning      ex. my_string = "abcde"
+                                                  my_string[:3] it will give "abc"      upto 3 but not include
+
+# To grab in btw                              ex. my_string = "abcde"
+                                                  my_string[1:3] it will give "bc" 
+
+# To reverse a string use                     ex. my_string[::-1]  it will give "edcba" 
+
+
+11-08-2023
+----------                                                 
+
+# Strings are not mutable! (meaning you can't use indexing to change individual elements of a string), but can be concatinated or sring interpolated.
+
+# 4E2 (4 times 10 to the power of 2) = 4×(10^2) = 400
+
+# This is string '2' and this is not 2  so '2' != 2
+
+
+12-08-2023
+---------- 
+
+# List are mutable. thats what differenciate them from string.
+
+# We can have multiplication of single list.  [0]*3
+
+# To sort a list we can you .srt method    ex my_list.sort()  which give  [1,2,3,4,5]     or  sorted(my_list)
+
+# Lists can have multiple object types and is ordered, changeable, and allow duplicate values. List items are indexed
+
+# By default pop takes off the last index.
+
+# In Nested lists We can again use indexing to grab elements, but now there are two levels for the index. The items in the matrix object, and then the items inside that list!
+
+ex. matrix[0][0]
+
+# Do dictionaries keep an order? How do I print the values of the dictionary in order?
+
+Dictionaries are mappings and do not retain order! If you do want the capabilities of a dictionary but you would like ordering as well, check out the ordereddict object lecture later on in the course!
+
+# Dictionaries are mutable.
+
+# Can you sort a dictionary? Why or why not?
+
+Answer: No! Because normal dictionaries are mappings not a sequence.
+
+
+16-08-2023
+----------
+
+# Tuple is similar to list but is immutable and use () instead of [].
+
+# In Python tuples are very similar to lists, however, unlike lists they are immutable meaning they can not be changed. You would use tuples to present things that shouldn't be changed, such as days of the week, or dates on a calendar.
+
+# there are only two methods for tuples!   .index(gives at what position a valur appear in a tuple) & .count(give the count of a value how many time it is there in a tuple)
+                            t = ('a', 'b', 'a')           ex. t.index('a')                             t.count('a')
+                                                              0                                               2
+
+# sets are unordered collection of unique elements.  represented by {}
+
+# Booleans first letter shoud be capital    True & False
+
+# How do you add an element to a set?   Ans.   .add()
+
+# .append() is for list
+
+# To read a basic text file    .read   & .readlines            ex myfile.read  will give contents of file as big string     and  myfile.readlines    will give files in actual line.
+
+# After opening a file you must close it to read again    ex. my_file.seek(0)
+
+# When you have finished using a file, it is always good practice to close it.         ex. my_file.close()
+
+# To make a few file and write in it 
+Opening a file with 'w' or 'w+' truncates the original, meaning that anything that was in the original file is deleted!
+
+with open('test.txt', mode='w') as f:
+    f.write('Hello World')
+
+#  
+
+
+** Imps Links **
+
+- Basic Practice:
+http://codingbat.com/python
+
+- More Mathematical (and Harder) Practice:
+https://projecteuler.net/archives
+
+- List of Practice Problems:
+http://www.codeabbey.com/index/task_list
+
+- A SubReddit Devoted to Daily Practice Problems:
+https://www.reddit.com/r/dailyprogrammer
+
+-A very tricky website with very few hints and touch problems (Not for beginners but still interesting)
+http://www.pythonchallenge.com/
+
+
+
+17-08-2023
+----------
+
+# 'and' logical operator need both conditions to be true    to be true
+  'or' logical operator need only one conditions to be true     to be true
+
+
+22-08-2023
+----------
+
+# loc = location
+
+# 
