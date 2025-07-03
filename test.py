@@ -477,7 +477,7 @@ print(type(number_total))
 | bytes     | ✅ Yes                        | Duplicate byte values allowed          |
 | bytearray | ✅ Yes                        | Like bytes but mutable                 |
 | range     | ✅ Technically Yes            | Values generated are unique by default |
-| dict      | ✅ Values: Yes<br>🚫 Keys: No | Duplicate keys are not allowed         |
+| dict      | ✅ Values: Yes 🚫 Keys: No | Duplicate keys are not allowed         |
 | set       | 🚫 No                        |  Unordered, mutable, Only unique elements                   |
 | frozenset | 🚫 No                        | unordered, Immutable set with unique elements     |
 
