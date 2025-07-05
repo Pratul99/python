@@ -18,7 +18,7 @@ mod = 17 % 15 # 2
 
 # round function
 
-ex_var = 1.23 + 
+ex_var = 1.23 + 9,.22322
 2.80
 print(round(ex_var, 2))
 
@@ -549,6 +549,11 @@ print(this_is_a_fruits_list[2])
 print(this_is_a_fruits_list[3])
 # output : pears
 
+
+
+# The len() function returns the number of elements in a list, not the index range.
+#len() counts how many items exist (total quantity)
+
 this_is_a_fruits_list[2] = "grapes"
 print(this_is_a_fruits_list[2])
 # output : grapes
@@ -556,6 +561,9 @@ print(this_is_a_fruits_list)
 # output : ["apples", "oranges", "grapes", "pears"]
 print(len(this_is_a_fruits_list))
 # output : 4
+
+
+
 
 # item   apples oranges grapes pears
 # index     0      1       2     3      left to right
@@ -591,6 +599,7 @@ print(list1)
 list1.insert(3, "insert me at index 3")
 print(list1)
 # output : ["apples", 5, True, "insert me at index 3", 1.2, "house", False]
+
 del list1[5]
 print(list1)
 # output : ["apples", 5, True, "insert me at index 3", 1.2, False]
@@ -1176,5 +1185,5 @@ while index < len(student_list):
 # output : Alice
 # ----------------------------------------------- xx -----------------------------------------------
 
-# 01-07-2025 
+# 05-07-2025 
 
