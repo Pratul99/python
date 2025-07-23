@@ -482,6 +482,22 @@ print(type(number_total))
 | frozenset | 🚫 No                        | unordered, Immutable set with unique elements     |
 
 
+
+| Data Structure | Ordered | Mutable       | Allows Duplicates           | Notes                                                                   |
+| -------------- | ------- | ------------- | --------------------------- | ----------------------------------------------------------------------- |
+| `str`          | ✅ Yes   | ❌ No          | ✅ Yes                       | Sequence of characters. Immutable.                                      |
+| `list`         | ✅ Yes   | ✅ Yes         | ✅ Yes                       | Ordered collection. Elements can be modified.                           |
+| `tuple`        | ✅ Yes   | ❌ No          | ✅ Yes                       | Immutable list. Can contain mutable elements though.                    |
+| `set`          | ❌ No    | ✅ Yes         | ❌ No                        | Unordered collection of **unique** elements.                            |
+| `frozenset`    | ❌ No    | ❌ No          | ❌ No                        | Immutable version of `set`.                                             |
+| `dict`         | ✅ Yes\* | ✅ Keys/values | ✅ Yes (values), ❌ No (keys) | As of Python 3.7+, dicts maintain insertion order. Keys must be unique. |
+| `bytes`        | ✅ Yes   | ❌ No          | ✅ Yes                       | Immutable sequence of bytes (0–255).                                    |
+| `bytearray`    | ✅ Yes   | ✅ Yes         | ✅ Yes                       | Mutable version of `bytes`.                                             |
+| `range`        | ✅ Yes   | ❌ No          | ✅ Yes                       | Immutable, generates sequences of numbers.                              |
+
+
+
+
 🧠 Core Data Types in Python
 1. Numeric Types
 Data Type	Example	        Description
@@ -950,7 +966,19 @@ x = 10
 result = "Positive" if x > 0 else "Non-positive"
 print(result)
 
+
+
+#🔹Flow of if-elif-else:
+
+if condition1:
+    # This block runs if condition1 is True
+elif condition2:
+    # This block runs ONLY if condition1 is False AND condition2 is True
+else:
+    # This block runs ONLY if both condition1 and condition2 are False
+
 '''
+
 
 your_score = 48
 passing_score = 50
