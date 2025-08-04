@@ -1,6 +1,5 @@
 
 
-
 """
 
 def array2d(mat):
