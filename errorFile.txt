@@ -1,0 +1,28 @@
+Traceback (most recent call last):
+  File "C:\Users\pratu\AppData\Local\Temp\ipykernel_22976\3239384739.py", line 18, in boxprint
+    raise Exception("'symbol' !, must be a string of lenght 1.")
+Exception: 'symbol' !, must be a string of lenght 1.
+********************
+Traceback (most recent call last):
+  File "C:\Users\pratu\AppData\Local\Temp\ipykernel_22976\3239384739.py", line 18, in boxprint
+    raise Exception("'symbol' !, must be a string of lenght 1.")
+Exception: 'symbol' !, must be a string of lenght 1.
+********************
+Traceback (most recent call last):
+  File "C:\Users\pratu\AppData\Local\Temp\ipykernel_22976\1819855067.py", line 18, in boxprint
+    raise Exception("'symbol' !, must be a string of lenght 1.")
+Exception: 'symbol' !, must be a string of lenght 1.
+********************
+
+Traceback (most recent call last):
+  File "C:\Users\pratu\AppData\Local\Temp\ipykernel_22976\1738169279.py", line 18, in boxprint
+    raise Exception("'symbol' !, must be a string of lenght 1.")
+Exception: 'symbol' !, must be a string of lenght 1.
+****************************************************************************************************
+
+Traceback (most recent call last):
+  File "C:\Users\pratu\AppData\Local\Temp\ipykernel_22976\1738169279.py", line 18, in boxprint
+    raise Exception("'symbol' !, must be a string of lenght 1.")
+Exception: 'symbol' !, must be a string of lenght 1.
+****************************************************************************************************
+

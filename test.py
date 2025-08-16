@@ -36,6 +36,9 @@ subtotal = round((pasta + sauce + garlic + seasoning + bread + meatballs), 2)
 print(subtotal)
 
 
+# Inout func. return a string
+my_age = input()
+
 # ******************************** To get a perticular character using index number ********************************
 
 ex_1 = "pratul"
