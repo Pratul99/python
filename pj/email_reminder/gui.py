@@ -1,6 +1,9 @@
 import csv
-from PyQt6.QtWidgets import (QApplication, QWidget, QLabel, QVBoxLayout, QDateTimeEdit,
-                             QLineEdit, QTextEdit, QSpacerItem, QSizePolicy, QHBoxLayout, QPushButton, QMessageBox)
+from PyQt6.QtWidgets import (
+    QApplication, QWidget, QLabel, QVBoxLayout, QDateTimeEdit,
+    QLineEdit, QTextEdit, QSpacerItem, QSizePolicy,
+    QHBoxLayout, QPushButton, QMessageBox
+)
 from PyQt6.QtCore import QDateTime
 import sys
 
@@ -14,7 +17,7 @@ class ReminderApp(QWidget):
     def setup_ui(self):
         layout = QVBoxLayout()
 
-        # Event date and time.
+        # Event date and time
         self.datetime_label = QLabel("Event date and time: ")
         self.datetime_picker = QDateTimeEdit()
         self.datetime_picker.setDateTime(QDateTime.currentDateTime())
@@ -45,10 +48,10 @@ class ReminderApp(QWidget):
         layout.addWidget(self.repeat_interval_label)
         layout.addWidget(self.repeat_interval_input)
 
-        # Button layout
+        # Buttons
         button_layout = QHBoxLayout()
         self.submit_button = QPushButton("Add Reminder")
-        self.submit_button.clicked.connect(self.save_reminder)   # ⬅ connect to saving function
+        self.submit_button.clicked.connect(self.save_reminder)
         self.close_button = QPushButton("Close")
         self.close_button.clicked.connect(self.close)
 
@@ -56,6 +59,7 @@ class ReminderApp(QWidget):
         button_layout.addWidget(self.close_button)
         layout.addLayout(button_layout)
 
+        # Spacer
         layout.addSpacerItem(QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding))
         self.setLayout(layout)
 
@@ -73,13 +77,17 @@ class ReminderApp(QWidget):
             QMessageBox.warning(self, "Error", "Email and reminder message cannot be empty!")
             return
 
-        # Save to reminders.csv
         try:
-            with open("reminders.csv", "a", newline="") as file:
-                writer = csv.DictWriter(file, fieldnames=["date", "time", "email", "message", "repeat_interval"])
+            with open("reminders.csv", "a+", newline="") as file:
+                file.seek(0, 2)  # go to end of file
+                if file.tell() > 0:  # if file not empty
+                    file.seek(file.tell() - 1)  # move back 1 char
+                    last_char = file.read(1)
+                    if last_char != "\n":  # if no newline at end
+                        file.write("\n")   # add one
 
-                # If file is empty, write header
-                if file.tell() == 0:
+                writer = csv.DictWriter(file, fieldnames=["date", "time", "email", "message", "repeat_interval"])
+                if file.tell() == 0:  # if file was empty (no header)
                     writer.writeheader()
 
                 writer.writerow({
