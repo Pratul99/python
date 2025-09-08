@@ -1,0 +1,121 @@
+# New type of logger.
+pip install loguru
+
+
+- When and Where to Use Logging
+
+Think of logging as a narrative of your code execution. You put logs at points where:
+
+| Scenario                    | Example log placement                                   |
+| --------------------------- | ------------------------------------------------------- |
+| **Start and End of Script** | `logging.info("Starting data processing")`              |
+| **Important Steps**         | After reading a file, after connecting to a DB          |
+| **User Inputs**             | Log what inputs/arguments were passed                   |
+| **Branching Logic**         | When an `if` condition triggers                         |
+| **Loops**                   | Only log summary info, not every iteration (avoid spam) |
+| **Exceptions**              | Inside `try/except` blocks with `logging.exception`     |
+| **Performance Checks**      | Start/end of long-running operations                    |
+| **External Calls**          | When calling an API or database                         |
+
+
+
+- Does Every Code File Need Logging?
+
+Rule of thumb:
+
+If your script is short-lived and you are the only user, print() is fine.
+If it’s long-running, shared, or needs debugging later, use logging.
+
+
+- Where Should Logs Be Stored? Console vs File vs Both
+
+| Use Case                      | Storage Choice                                    |
+| ----------------------------- | ------------------------------------------------- |
+| Quick debugging in dev        | Console only                                      |
+| Automation scripts (personal) | Both console + file                               |
+| Production services           | File or remote log system (e.g., ELK, CloudWatch) |
+| Security/audit requirements   | File only (permanent record)                      |
+
+
+Best practice:
+
+During development: Console is enough.
+In production or automation: Log to both file and console.
+
+
+- When reviewing your code, ask:
+
+1. Would I want to know if this step succeeded/failed?
+
+2. Could this fail silently?
+
+3. Would this help future debugging if an error occurs?
+
+4. Would another developer (or future me) need this context?
+
+If yes → Log it.
+If it’s trivial (e.g., incrementing a counter inside a loop), don’t log it.
+
+
+*** Universal Python Logging Template ***
+
+import logging
+import os
+from datetime import datetime
+
+def setup_logger(log_name="app", log_level=logging.INFO, log_dir="logs"):
+    """
+    Sets up logging to both console and a rotating log file.
+    
+    :param log_name: Name of the log file (without extension)
+    :param log_level: Logging level (DEBUG, INFO, WARNING, ERROR, CRITICAL)
+    :param log_dir: Directory where logs will be stored
+    :return: Configured logger object
+    """
+    # Create logs directory if it doesn't exist
+    os.makedirs(log_dir, exist_ok=True)
+    
+    # Log file with timestamp
+    log_file = os.path.join(log_dir, f"{log_name}_{datetime.now().strftime('%Y%m%d')}.log")
+    
+    # Define log format
+    log_format = "%(asctime)s - %(levelname)s - %(message)s"
+    
+    # Create logger
+    logger = logging.getLogger(log_name)
+    logger.setLevel(log_level)
+    logger.handlers.clear()  # Avoid duplicate logs
+    
+    # File Handler
+    file_handler = logging.FileHandler(log_file)
+    file_handler.setFormatter(logging.Formatter(log_format))
+    logger.addHandler(file_handler)
+    
+    # Console Handler
+    console_handler = logging.StreamHandler()
+    console_handler.setFormatter(logging.Formatter(log_format))
+    logger.addHandler(console_handler)
+    
+    return logger
+
+
+# ---------------- Example Usage ----------------
+if __name__ == "__main__":
+    log = setup_logger(log_name="my_script", log_level=logging.DEBUG)
+
+    log.info("Script started")
+    try:
+        log.debug("Loading data...")
+        data = [1, 2, 3]
+        log.info(f"Data loaded: {data}")
+        
+        log.debug("Processing data...")
+        processed = [x * 2 for x in data]
+        log.info(f"Processed data: {processed}")
+        
+        log.warning("This is just a warning example")
+        log.error("This is an error example")
+    except Exception as e:
+        log.exception("Unexpected error occurred")
+    finally:
+        log.info("Script finished")
